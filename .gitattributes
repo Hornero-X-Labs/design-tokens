@@ -1,0 +1,7 @@
+# Normaliza los finales de línea para que el equipo trabaje mezclando Windows/macOS/Linux.
+* text=auto eol=lf
+
+# Los hooks se ejecutan con sh: tienen que quedar sí o sí en LF.
+.githooks/** text eol=lf
+
+*.pdf binary

@@ -1,0 +1,18 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores / IDEs
+.vscode/
+.idea/
+*.swp
+
+# Dependencias
+node_modules/
+
+# Agentes de IA — configuración local de cada persona
+.claude/settings.local.json
+.qwen/
+.gemini/
+.codex/

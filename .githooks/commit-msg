@@ -1,0 +1,14 @@
+#!/bin/sh
+# Limpia del mensaje de commit las firmas que agregan los agentes de IA.
+# La autoría de un commit es siempre de la persona que lo hace (ver AGENTS.md).
+#
+# Se activa con: git config core.hooksPath .githooks
+
+msg="$1"
+tmp="$msg.tmp"
+
+grep -viE '^([[:space:]]*(co-authored-by:[[:space:]]*(claude|qwen|codex|gemini|copilot|cursor|devin|aider|anthropic|openai)|.*generated with \[?(claude code|codex|qwen code|gemini cli)|🤖))' "$msg" > "$tmp"
+
+# Elimina las líneas en blanco que quedan al final.
+awk 'NF {last=NR} {line[NR]=$0} END {for (i=1; i<=last; i++) print line[i]}' "$tmp" > "$msg"
+rm -f "$tmp"
