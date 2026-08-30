@@ -5,27 +5,35 @@
   "license": "UNLICENSED",
   "private": true,
   "type": "module",
-  "main": "./tokens.ts",
-  "types": "./tokens.ts",
+  "main": "./tokens.js",
+  "types": "./tokens.d.ts",
   "exports": {
-    ".": "./tokens.ts",
+    ".": {
+      "types": "./tokens.d.ts",
+      "default": "./tokens.js"
+    },
     "./tokens.json": "./tokens.json"
   },
   "files": [
-    "tokens.ts",
+    "tokens.js",
+    "tokens.d.ts",
     "tokens.json"
   ],
   "engines": {
-    "node": ">=22.6"
+    "node": ">=20"
   },
   "scripts": {
     "generate": "node scripts/generate-tokens.mjs",
     "check": "node scripts/generate-tokens.mjs --check",
     "contrast": "node scripts/check-contrast.mjs",
-    "test": "npm run check && npm run contrast"
+    "typecheck": "tsc --noEmit --strict tokens.d.ts",
+    "test": "npm run check && npm run typecheck && npm run contrast"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hornero-X-Labs/design-tokens.git"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
   }
 }

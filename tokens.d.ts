@@ -1,10 +1,10 @@
 // Generado por scripts/generate-tokens.mjs a partir de tokens.json.
 // No editar a mano: los cambios van en tokens.json y se regeneran con `npm run generate`.
 
-export const version = "0.1.0";
+export declare const version: string;
 
 /** Los valores crudos, con el par claro/oscuro sin resolver. */
-export const tokens = {
+export declare const tokens: {
   "$comment": "Fuente de verdad del sistema de diseño. Editar acá y regenerar tokens.ts con `npm run generate`.",
   "version": "0.1.0",
   "color": {
@@ -67,10 +67,10 @@ export const tokens = {
     "lg": 16,
     "pill": 999,
   },
-} as const;
+};
 
 /** Tema claro, con los colores ya resueltos. */
-export const light = {
+export declare const light: {
   "color": {
     "primary": "#B4552D",
     "onPrimary": "#FFFFFF",
@@ -110,52 +110,12 @@ export const light = {
     "lg": 16,
     "pill": 999,
   },
-} as const;
+};
 
 /** Tema oscuro, con los colores ya resueltos. */
-export const dark = {
-  "color": {
-    "primary": "#E08A5C",
-    "onPrimary": "#17120F",
-    "background": "#17120F",
-    "surface": "#241C17",
-    "text": "#F5F0EC",
-    "textMuted": "#B8ABA3",
-    "border": "#75655A",
-  },
-  "font": {
-    "family": {
-      "sans": "system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif",
-      "mono": "ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
-    },
-    "size": {
-      "sm": 14,
-      "md": 16,
-      "lg": 20,
-      "xl": 28,
-    },
-    "weight": {
-      "regular": "400",
-      "medium": "500",
-      "bold": "700",
-    },
-  },
-  "space": {
-    "xs": 4,
-    "sm": 8,
-    "md": 16,
-    "lg": 24,
-    "xl": 40,
-  },
-  "radius": {
-    "sm": 4,
-    "md": 8,
-    "lg": 16,
-    "pill": 999,
-  },
-} as const;
+export declare const dark: Theme;
 
-export const themes = { light, dark } as const;
+export declare const themes: { light: Theme; dark: Theme };
 
-export type ColorScheme = keyof typeof themes;
+export type ColorScheme = "light" | "dark";
 export type Theme = typeof light;

@@ -49,34 +49,30 @@ El paquete exporta:
 También se puede importar el JSON directo con
 `@hornero/design-tokens/tokens.json`.
 
-### Por qué el paquete expone TypeScript sin compilar
+### Por qué el paquete ya viene compilado
 
-`tokens.ts` se genera y **se versiona** junto a `tokens.json`, y no hay paso de
-build en el install. Un `prepare` que transpile rompe con Metro, el bundler de
-React Native, y agrega una pieza que habría que mantener sin necesitarla.
+`tokens.js` y `tokens.d.ts` se generan desde `tokens.json` y **se versionan**, y
+no hay paso de build en el install. Un `prepare` que transpile rompe con Metro,
+el bundler de React Native, y agrega una pieza que habría que mantener sin
+necesitarla.
 
-Los dos consumidores transpilan TypeScript por su cuenta: Vite con esbuild y
-Expo con Babel. Si el pre-bundler de Vite se queja del paquete, se lo excluye:
-
-```ts
-// vite.config.ts
-export default defineConfig({
-  optimizeDeps: { exclude: ["@hornero/design-tokens"] },
-});
-```
+Se publica JavaScript y no TypeScript porque **ni Node ni los bundlers
+transpilan TypeScript que viene dentro de `node_modules`**: Node lo rechaza con
+`ERR_UNSUPPORTED_NODE_MODULES_TYPE_STRIPPING`. Los tipos viajan aparte, en el
+`.d.ts`, que es la forma en la que un paquete npm los distribuye.
 
 ## Cómo cambiar un valor
 
-1. Editar **`tokens.json`**, que es la fuente de verdad. `tokens.ts` no se toca a
-   mano.
+1. Editar **`tokens.json`**, que es la fuente de verdad. Los archivos generados
+   no se tocan a mano.
 2. Regenerar y verificar:
 
    ```bash
-   npm run generate   # reescribe tokens.ts
-   npm test           # chequea la sincronización y el contraste
+   npm run generate   # reescribe tokens.js y tokens.d.ts
+   npm test           # sincronización, tipos y contraste
    ```
 
-3. Commitear los dos archivos juntos, subir la versión en `package.json` y
+3. Commitear los tres archivos juntos, subir la versión en `package.json` y
    abrir el PR.
 4. Con el PR mergeado, publicar el tag:
 

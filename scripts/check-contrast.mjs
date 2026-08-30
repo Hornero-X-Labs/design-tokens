@@ -4,7 +4,7 @@
 // Es lo que hace verificable el criterio de accesibilidad de T-17: si alguien
 // cambia un color en tokens.json y rompe la legibilidad, el CI lo frena.
 
-import { themes } from "../tokens.ts";
+import { themes } from "../tokens.js";
 
 const AA_TEXTO = 4.5; // 1.4.3 Contraste mínimo, texto normal
 const AA_NO_TEXTO = 3; // 1.4.11 Contraste de elementos no textuales
