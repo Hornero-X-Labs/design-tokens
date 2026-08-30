@@ -26,8 +26,8 @@ Al abrir un PR, linkear el issue del padre con la forma larga:
 
 ## Reglas propias
 
-- **`tokens.json` es la fuente de verdad.** `tokens.ts` se genera; no se edita a
-  mano. Los dos se commitean juntos.
+- **`tokens.json` es la fuente de verdad.** `tokens.js` y `tokens.d.ts` se
+  generan; no se editan a mano. Los tres se commitean juntos.
 - **No agregar un paso de build al install.** Nada de `prepare` que transpile:
   rompe con Metro. Es una decisión de ADR-006, no una preferencia.
 - **Un cambio de valores es un cambio de versión.** Subir `version` en
@@ -46,7 +46,8 @@ El hook `commit-msg` borra las firmas de agentes que se cuelen en el mensaje.
 ## Controles de calidad
 
 ```bash
-npm run check      # tokens.ts sincronizado con tokens.json
+npm run check      # los generados sincronizados con tokens.json
+npm run typecheck  # el .d.ts que consumen los frontends compila
 npm run contrast   # contraste WCAG de los dos temas
-npm test           # los dos
+npm test           # los tres
 ```
