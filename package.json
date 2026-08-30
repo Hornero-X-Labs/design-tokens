@@ -1,0 +1,31 @@
+{
+  "name": "@hornero/design-tokens",
+  "version": "0.1.0",
+  "description": "Valores del sistema de diseño de UdeSA-X, compartidos por la app mobile y el backoffice web",
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "main": "./tokens.ts",
+  "types": "./tokens.ts",
+  "exports": {
+    ".": "./tokens.ts",
+    "./tokens.json": "./tokens.json"
+  },
+  "files": [
+    "tokens.ts",
+    "tokens.json"
+  ],
+  "engines": {
+    "node": ">=22.6"
+  },
+  "scripts": {
+    "generate": "node scripts/generate-tokens.mjs",
+    "check": "node scripts/generate-tokens.mjs --check",
+    "contrast": "node scripts/check-contrast.mjs",
+    "test": "npm run check && npm run contrast"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hornero-X-Labs/design-tokens.git"
+  }
+}
