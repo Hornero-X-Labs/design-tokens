@@ -10,6 +10,15 @@ const AA_TEXTO = 4.5; // 1.4.3 Contraste mínimo, texto normal
 const AA_NO_TEXTO = 3; // 1.4.11 Contraste de elementos no textuales
 
 function luminancia(hex) {
+  // La paleta tiene colores con alfa (el velo y la sombra). Un #RRGGBBAA acá
+  // daría la luminancia del color opaco y el contraste saldría "ok" cuando en
+  // pantalla el color es translúcido. Antes que mentir, frena.
+  if (hex.length !== 7) {
+    throw new Error(
+      `${hex} no es un #RRGGBB opaco: el contraste de un color con alfa depende de lo que haya detrás.`,
+    );
+  }
+
   const canales = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
   const [r, g, b] = canales.map((c) =>
     c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4,
@@ -22,6 +31,9 @@ function contraste(a, b) {
   return (alta + 0.05) / (baja + 0.05);
 }
 
+// El velo y la sombra no entran: son capas translúcidas que no forman un par de
+// texto sobre fondo. Lo que sí se verifica es el texto del composer, que se
+// dibuja sobre `background`, y ya está cubierto por el primer par.
 const pares = ({ color }) => [
   ["texto sobre el fondo", color.text, color.background, AA_TEXTO],
   ["texto sobre la superficie", color.text, color.surface, AA_TEXTO],
