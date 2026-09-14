@@ -5,8 +5,8 @@ export declare const version: string;
 
 /** Los valores crudos, con el par claro/oscuro sin resolver. */
 export declare const tokens: {
-  "$comment": "Fuente de verdad del sistema de diseño. Editar acá y regenerar tokens.ts con `npm run generate`.",
-  "version": "0.1.0",
+  "$comment": "Fuente de verdad del sistema de diseño. Editar acá y regenerar tokens.js con `npm run generate`. Los valores numéricos de color, space, radius y size son píxeles sin unidad; los de font.lineHeight y font.letterSpacing son multiplicadores del tamaño de fuente, no medidas absolutas.",
+  "version": "0.2.0",
   "color": {
     "primary": {
       "light": "#B4552D",
@@ -36,6 +36,14 @@ export declare const tokens: {
       "light": "#9A8A80",
       "dark": "#75655A",
     },
+    "scrim": {
+      "light": "#00000073",
+      "dark": "#000000A6",
+    },
+    "shadow": {
+      "light": "#00000066",
+      "dark": "#000000A6",
+    },
   },
   "font": {
     "family": {
@@ -53,6 +61,14 @@ export declare const tokens: {
       "medium": "500",
       "bold": "700",
     },
+    "lineHeight": {
+      "tight": 1.15,
+      "normal": 1.45,
+    },
+    "letterSpacing": {
+      "slight": 0.04,
+      "wide": 0.08,
+    },
   },
   "space": {
     "xs": 4,
@@ -66,6 +82,16 @@ export declare const tokens: {
     "md": 8,
     "lg": 16,
     "pill": 999,
+  },
+  "size": {
+    "touchMin": 44,
+    "control": 48,
+    "floatingAction": 56,
+    "avatar": {
+      "sm": 44,
+      "md": 64,
+      "lg": 80,
+    },
   },
 };
 
@@ -79,6 +105,8 @@ export declare const light: {
     "text": "#1A1614",
     "textMuted": "#5C5049",
     "border": "#9A8A80",
+    "scrim": "#00000073",
+    "shadow": "#00000066",
   },
   "font": {
     "family": {
@@ -96,6 +124,14 @@ export declare const light: {
       "medium": "500",
       "bold": "700",
     },
+    "lineHeight": {
+      "tight": 1.15,
+      "normal": 1.45,
+    },
+    "letterSpacing": {
+      "slight": 0.04,
+      "wide": 0.08,
+    },
   },
   "space": {
     "xs": 4,
@@ -109,6 +145,16 @@ export declare const light: {
     "md": 8,
     "lg": 16,
     "pill": 999,
+  },
+  "size": {
+    "touchMin": 44,
+    "control": 48,
+    "floatingAction": 56,
+    "avatar": {
+      "sm": 44,
+      "md": 64,
+      "lg": 80,
+    },
   },
 };
 

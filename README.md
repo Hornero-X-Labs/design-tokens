@@ -23,18 +23,41 @@ color, tipografía y espaciado.
 Se instala como dependencia de git **pineada a un tag**, nunca a una rama:
 
 ```bash
-npm install "github:Hornero-X-Labs/design-tokens#v0.1.0"
+npm install "github:Hornero-X-Labs/design-tokens#v0.2.0"
 ```
 
 ```ts
 import { themes, type ColorScheme } from "@hornero/design-tokens";
 
 const scheme: ColorScheme = "light";
-const { color, space, radius } = themes[scheme];
+const { color, space, radius, size } = themes[scheme];
 
 color.primary; // "#B4552D"
 space.md; // 16
+size.touchMin; // 44
 ```
+
+### Qué grupos hay y en qué unidad
+
+| Grupo | Qué trae | Unidad |
+| --- | --- | --- |
+| `color` | Paleta, más `scrim` y `shadow` | Hex. Los dos últimos son `#RRGGBBAA` |
+| `font.family` | Familias sans y mono | Lista CSS |
+| `font.size` | Escala tipográfica | Píxeles sin unidad |
+| `font.weight` | Pesos | String (`"500"`) |
+| `font.lineHeight` | `tight` y `normal` | **Multiplicador** del tamaño de fuente |
+| `font.letterSpacing` | `slight` y `wide` | **Multiplicador** del tamaño de fuente |
+| `space` | Escala de espaciado | Píxeles sin unidad |
+| `radius` | Redondeos | Píxeles sin unidad |
+| `size` | Altos táctiles y avatares | Píxeles sin unidad |
+
+Los dos multiplicadores son los únicos valores numéricos que **no** son píxeles.
+El CSS los usa tal cual (`line-height: 1.45`); React Native necesita un valor
+absoluto, así que los multiplica por el tamaño de fuente.
+
+`color.scrim` y `color.shadow` llevan alfa porque son capas que dejan ver lo que
+tienen detrás. Por eso no entran en `npm run contrast`: el contraste de un color
+translúcido depende del fondo, y el script frena si recibe uno.
 
 El paquete exporta:
 
