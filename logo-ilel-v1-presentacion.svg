@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080" viewBox="0 0 360 360"><rect width="360" height="360" fill="#ffffff" /><svg width="272" height="280" viewBox="926 75 272 280" role="img" aria-labelledby="title desc" x="44" y="40">
+  <title id="title">Logo de Ilel — primera reconstrucción vectorial</title>
+  <desc id="desc">Escudo azul y terracota con una X blanca y una pluma, sobre fondo negro. Reconstrucción manual del logo superior derecho de la referencia.</desc>
+  <defs>
+    <linearGradient id="blue" x1="958" y1="230" x2="1165" y2="230" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#005681" />
+      <stop offset=".52" stop-color="#00476f" />
+      <stop offset="1" stop-color="#00557f" />
+    </linearGradient>
+    <linearGradient id="clay" x1="999" y1="135" x2="1110" y2="298" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b96743" />
+      <stop offset=".48" stop-color="#a95233" />
+      <stop offset="1" stop-color="#b76442" />
+    </linearGradient>
+    <linearGradient id="feather" x1="1066" y1="215" x2="1165" y2="100" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" />
+      <stop offset="1" stop-color="#e4e5e3" />
+    </linearGradient>
+  </defs>
+  <rect id="background" x="926" y="75" width="272" height="280" rx="48" fill="#020303" />
+  <g id="shield">
+    <path fill="url(#blue)" d="M958 137 L983 164 L983 225 C983 272 1017 305 1061 305 C1105 305 1140 272 1140 225 L1140 164 L1165 138 L1165 225 C1165 285 1120 330 1061 330 C1002 330 958 285 958 225 Z" />
+    <path fill="#397496" d="M976 275 C994 303 1021 317 1058 317 C1100 317 1135 296 1154 265 C1139 301 1105 323 1064 323 C1025 323 992 305 976 275 Z" />
+    <path fill="url(#clay)" d="M1027 133 H1087 L1060 167 Z M991 178 L1022 208 L991 241 Z M1132 178 L1098 208 L1132 243 Z M1025 288 L1061 250 L1096 288 C1076 301 1047 301 1025 288 Z" />
+  </g>
+  <g id="letter-x">
+    <path fill="#030303" d="M962 128 H1016 L1061 178 L1107 128 H1159 L1089 208 L1132 254 C1128 268 1118 279 1107 289 L1061 241 L1016 289 C1003 280 994 269 990 254 L1032 208 Z" />
+    <path fill="#8f4f36" d="M969 133 H1014 L1061 184 L1109 133 H1149 L1081 208 L1127 256 C1123 266 1115 276 1107 282 L1061 233 L1016 282 C1007 276 1000 268 995 257 L1039 208 Z" />
+    <path fill="#fffdf9" d="M978 137 H1012 L1061 191 L1111 137 H1140 L1077 208 L1123 256 C1119 265 1113 272 1107 278 L1061 228 L1015 278 C1008 272 1003 266 999 257 L1043 208 Z" />
+  </g>
+  <g id="quill">
+    <path fill="url(#feather)" d="M1057 224 C1060 208 1065 185 1075 168 L1080 177 L1080 156 L1090 141 L1091 157 C1094 142 1105 126 1115 121 L1114 139 C1121 113 1146 102 1166 99 C1164 127 1151 145 1138 151 L1152 148 C1147 160 1137 172 1120 180 L1128 179 C1117 192 1102 199 1082 207 Z" />
+    <path fill="#a3a6a3" d="M1057 224 C1073 187 1109 142 1150 110 C1119 140 1088 181 1057 224 Z" />
+    <path fill="#a3a6a3" d="M1080 193 C1083 181 1082 173 1085 165 C1084 178 1087 180 1085 187 C1098 181 1110 183 1122 178 C1114 185 1093 188 1080 193 Z M1092 175 C1097 165 1095 151 1100 142 C1098 154 1100 159 1098 168 C1112 161 1128 160 1137 151 C1130 163 1105 168 1092 175 Z M1107 154 C1112 142 1116 130 1124 120 C1119 131 1117 137 1116 144 C1129 140 1142 134 1150 124 C1146 138 1121 145 1107 154 Z M1125 133 C1129 124 1136 114 1145 109 C1137 116 1134 122 1132 127 Z" />
+  </g>
+</svg></svg>
