@@ -49,7 +49,7 @@ size.touchMin; // 44
 | `font.letterSpacing` | `slight` y `wide` | **Multiplicador** del tamaño de fuente |
 | `space` | Escala de espaciado | Píxeles sin unidad |
 | `radius` | Redondeos | Píxeles sin unidad |
-| `size` | Altos táctiles y avatares | Píxeles sin unidad |
+| `size` | Altos táctiles, avatares y logo (ancho; el alto sale del aspect ratio) | Píxeles sin unidad |
 
 Los dos multiplicadores son los únicos valores numéricos que **no** son píxeles.
 El CSS los usa tal cual (`line-height: 1.45`); React Native necesita un valor
