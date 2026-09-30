@@ -1,12 +1,12 @@
 // Generado por scripts/generate-tokens.mjs a partir de tokens.json.
 // No editar a mano: los cambios van en tokens.json y se regeneran con `npm run generate`.
 
-export const version = "0.2.0";
+export const version = "0.3.0";
 
 /** Los valores crudos, con el par claro/oscuro sin resolver. */
 export const tokens = {
   "$comment": "Fuente de verdad del sistema de diseño. Editar acá y regenerar tokens.js con `npm run generate`. Los valores numéricos de color, space, radius y size son píxeles sin unidad; los de font.lineHeight y font.letterSpacing son multiplicadores del tamaño de fuente, no medidas absolutas.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "color": {
     "primary": {
       "light": "#B4552D",
@@ -92,6 +92,11 @@ export const tokens = {
       "md": 64,
       "lg": 80,
     },
+    "logo": {
+      "sm": 32,
+      "md": 48,
+      "lg": 80,
+    },
   },
 };
 
@@ -155,6 +160,11 @@ export const light = {
       "md": 64,
       "lg": 80,
     },
+    "logo": {
+      "sm": 32,
+      "md": 48,
+      "lg": 80,
+    },
   },
 };
 
@@ -216,6 +226,11 @@ export const dark = {
     "avatar": {
       "sm": 44,
       "md": 64,
+      "lg": 80,
+    },
+    "logo": {
+      "sm": 32,
+      "md": 48,
       "lg": 80,
     },
   },

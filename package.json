@@ -1,6 +1,6 @@
 {
   "name": "@hornero/design-tokens",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Valores del sistema de diseño de UdeSA-X, compartidos por la app mobile y el backoffice web",
   "license": "UNLICENSED",
   "private": true,
