@@ -1,0 +1,8 @@
+{
+  "pkg": "@hornero/design-tokens",
+  "globalName": "HorneroDesignTokens",
+  "shape": "package",
+  "projectId": "534d61b4-2927-4665-b50d-86ebf55e3a15",
+  "cssEntry": ".design-sync/.cache/tokens.css",
+  "readmeHeader": ".design-sync/conventions.md"
+}
