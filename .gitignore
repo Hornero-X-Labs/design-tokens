@@ -16,3 +16,7 @@ node_modules/
 .qwen/
 .gemini/
 .codex/
+
+# Artefactos generados por la sincronización del design system
+.ds-sync/
+ds-bundle/
