@@ -9,6 +9,7 @@
 // valores, no componentes).
 //
 //   node .design-sync/tokens-css.mjs   escribe .design-sync/.cache/tokens.css
+//   npm run test:css                   corre las pruebas de unidades
 
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -19,9 +20,6 @@ const SOURCE = join(root, "tokens.json");
 const TARGET = join(root, ".design-sync", ".cache", "tokens.css");
 const SCHEMES = ["light", "dark"];
 
-const raw = JSON.parse(readFileSync(SOURCE, "utf8"));
-const { $comment, version, ...groups } = raw;
-
 // Un valor de color es el par { light, dark }; el resto viaja tal cual.
 const isColorPair = (value) =>
   value !== null &&
@@ -30,9 +28,13 @@ const isColorPair = (value) =>
 
 const kebab = (key) => key.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
 
-// Los números son píxeles (tamaños, espaciado, radios); las cadenas viajan
-// literales (familias tipográficas, pesos, colores).
-const css = (value) => (typeof value === "number" ? `${value}px` : String(value));
+// Los números son píxeles (tamaños, espaciado, radios), salvo los dos
+// multiplicadores del tamaño de fuente: line-height viaja sin unidad y
+// letter-spacing en em, que es relativo al tamaño de fuente igual que el
+// multiplicador. Las cadenas viajan literales (familias, pesos, colores).
+const UNIDAD = { "font-line-height": "", "font-letter-spacing": "em" };
+const css = (value, grupo) =>
+  typeof value === "number" ? `${value}${UNIDAD[grupo] ?? "px"}` : String(value);
 
 // Aplana el árbol a pares [--nombre, valor]. Los colores quedan en `porTema`,
 // donde hay un valor por esquema; el resto en `fijos`.
@@ -44,21 +46,23 @@ function flatten(node, path, fijos, porTema) {
     } else if (value !== null && typeof value === "object") {
       flatten(value, [...path, kebab(key)], fijos, porTema);
     } else {
-      fijos.push([name, css(value)]);
+      fijos.push([name, css(value, path.join("-"))]);
     }
   }
 }
 
-const fijos = [];
-const porTema = [];
-flatten(groups, [], fijos, porTema);
+export function tokensCss(raw) {
+  const { $comment, version, ...groups } = raw;
+  const fijos = [];
+  const porTema = [];
+  flatten(groups, [], fijos, porTema);
 
-const declara = (pares, indent = "  ") =>
-  pares.map(([name, value]) => `${indent}${name}: ${value};`).join("\n");
-const colores = (scheme, indent = "  ") =>
-  declara(porTema.map(([name, pair]) => [name, pair[scheme]]), indent);
+  const declara = (pares, indent = "  ") =>
+    pares.map(([name, value]) => `${indent}${name}: ${value};`).join("\n");
+  const colores = (scheme, indent = "  ") =>
+    declara(porTema.map(([name, pair]) => [name, pair[scheme]]), indent);
 
-const contenido = `/* Generado por .design-sync/tokens-css.mjs a partir de tokens.json (versión ${version}).
+  const contenido = `/* Generado por .design-sync/tokens-css.mjs a partir de tokens.json (versión ${version}).
    No editar a mano: los cambios van en tokens.json. */
 
 :root {
@@ -93,7 +97,13 @@ body {
   font-size: var(--font-size-md);
 }
 `;
+  return contenido;
+}
 
-mkdirSync(dirname(TARGET), { recursive: true });
-writeFileSync(TARGET, contenido);
-console.log(`${TARGET} generado (versión ${version}).`);
+// Solo escribe cuando se ejecuta directo; importarlo desde una prueba no toca el disco.
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const raw = JSON.parse(readFileSync(SOURCE, "utf8"));
+  mkdirSync(dirname(TARGET), { recursive: true });
+  writeFileSync(TARGET, tokensCss(raw));
+  console.log(`${TARGET} generado (versión ${raw.version}).`);
+}
