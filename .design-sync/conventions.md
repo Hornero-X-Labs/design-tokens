@@ -38,6 +38,10 @@ names and fill every value from this table.
 `--font-size-sm` (14px), `--font-size-md` (16px, body), `--font-size-lg` (20px),
 `--font-size-xl` (28px); `--font-weight-regular` (400), `--font-weight-medium`
 (500), `--font-weight-bold` (700).
+`--font-line-height-tight` (1.15) and `--font-line-height-normal` (1.45) are
+unitless multipliers: write `line-height: var(--font-line-height-normal)`, never
+add `px`. `--font-letter-spacing-slight` (0.04em) and
+`--font-letter-spacing-wide` (0.08em) are in `em`.
 
 **Spacing** — use for padding, margin and gap:
 `--space-xs` (4px), `--space-sm` (8px), `--space-md` (16px),
