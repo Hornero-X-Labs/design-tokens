@@ -49,5 +49,5 @@ El hook `commit-msg` borra las firmas de agentes que se cuelen en el mensaje.
 npm run check      # los generados sincronizados con tokens.json
 npm run typecheck  # el .d.ts que consumen los frontends compila
 npm run contrast   # contraste WCAG de los dos temas
-npm test           # los tres
+npm test           # los cuatro (incluye test:css, las unidades del CSS de design-sync)
 ```

@@ -26,6 +26,7 @@ jobs:
       - run: npm run check
       - run: npm run typecheck
       - run: npm run contrast
+      - run: npm run test:css
 
   markdownlint:
     name: Markdown lint

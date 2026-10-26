@@ -26,8 +26,9 @@
     "generate": "node scripts/generate-tokens.mjs",
     "check": "node scripts/generate-tokens.mjs --check",
     "contrast": "node scripts/check-contrast.mjs",
+    "test:css": "node --test .design-sync/tokens-css.test.mjs",
     "typecheck": "tsc --noEmit --strict tokens.d.ts",
-    "test": "npm run check && npm run typecheck && npm run contrast"
+    "test": "npm run check && npm run typecheck && npm run contrast && npm run test:css"
   },
   "repository": {
     "type": "git",
