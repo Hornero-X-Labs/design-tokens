@@ -41,6 +41,12 @@ const pares = ({ color }) => [
   ["primario sobre el fondo", color.primary, color.background, AA_TEXTO],
   ["texto del botón sobre el primario", color.onPrimary, color.primary, AA_TEXTO],
   ["borde sobre el fondo", color.border, color.background, AA_NO_TEXTO],
+  // Los colores de categoría marcan puntos y barras (el grafo de "Tu algoritmo"),
+  // no texto: alcanza el mínimo de elementos no textuales, sobre fondo y superficie.
+  ...Object.entries(color.category).flatMap(([n, valor]) => [
+    [`categoría ${n} sobre el fondo`, valor, color.background, AA_NO_TEXTO],
+    [`categoría ${n} sobre la superficie`, valor, color.surface, AA_NO_TEXTO],
+  ]),
 ];
 
 let fallas = 0;

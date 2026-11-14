@@ -116,6 +116,15 @@ rompa la legibilidad no entra.
 Por eso el primario tiene un valor distinto por tema: el terracota del tema claro
 da 3.79:1 sobre el fondo oscuro y no llega al mínimo.
 
+`color.category` son 10 colores para distinguir categorías en un gráfico, como
+los temas del grafo de "Tu algoritmo" (E6-H03). Marcan puntos y barras, no
+texto: se verifican a 3:1 sobre el fondo y la superficie.
+
+Con daltonismo rojo-verde algunos pares se confunden (en el tema oscuro, 3 con
+6, 1 con 5 y 7 con 8). Un gráfico que los use no puede separar las categorías
+solo por color: tiene que sumar otra pista, como una etiqueta o resaltar una
+categoría al tocarla.
+
 ## Cómo trabajar acá
 
 Las convenciones están en [`AGENTS.md`](./AGENTS.md). Setup, una vez por clon:
