@@ -113,6 +113,10 @@ transpilan TypeScript que viene dentro de `node_modules`**: Node lo rechaza con
 WCAG 2.1: 4.5:1 para texto y 3:1 para bordes. Corre en CI, así que un color que
 rompa la legibilidad no entra.
 
+`color.category` son 10 colores para distinguir categorías en un gráfico, como
+los temas del grafo de "Tu algoritmo" (E6-H03). Marcan puntos y barras, no
+texto: se verifican a 3:1 sobre el fondo y la superficie.
+
 Por eso el primario tiene un valor distinto por tema: el terracota del tema claro
 da 3.79:1 sobre el fondo oscuro y no llega al mínimo.
 

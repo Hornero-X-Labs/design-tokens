@@ -1,12 +1,12 @@
 // Generado por scripts/generate-tokens.mjs a partir de tokens.json.
 // No editar a mano: los cambios van en tokens.json y se regeneran con `npm run generate`.
 
-export const version = "0.3.0";
+export const version = "1.1.0";
 
 /** Los valores crudos, con el par claro/oscuro sin resolver. */
 export const tokens = {
   "$comment": "Fuente de verdad del sistema de diseño. Editar acá y regenerar tokens.js con `npm run generate`. Los valores numéricos de color, space, radius y size son píxeles sin unidad; los de font.lineHeight y font.letterSpacing son multiplicadores del tamaño de fuente, no medidas absolutas.",
-  "version": "0.3.0",
+  "version": "1.1.0",
   "color": {
     "primary": {
       "light": "#B4552D",
@@ -43,6 +43,48 @@ export const tokens = {
     "shadow": {
       "light": "#00000066",
       "dark": "#000000A6",
+    },
+    "category": {
+      "1": {
+        "light": "#1F6FB2",
+        "dark": "#6FA8DC",
+      },
+      "2": {
+        "light": "#C25400",
+        "dark": "#F39C4A",
+      },
+      "3": {
+        "light": "#2E8B3D",
+        "dark": "#6CC77A",
+      },
+      "4": {
+        "light": "#C62D42",
+        "dark": "#F07085",
+      },
+      "5": {
+        "light": "#7B4FB3",
+        "dark": "#B79AE6",
+      },
+      "6": {
+        "light": "#8C5A3C",
+        "dark": "#C99A78",
+      },
+      "7": {
+        "light": "#C2428F",
+        "dark": "#EE8CC4",
+      },
+      "8": {
+        "light": "#5F6B73",
+        "dark": "#A8B3BA",
+      },
+      "9": {
+        "light": "#7A7A00",
+        "dark": "#C9C94A",
+      },
+      "10": {
+        "light": "#0E7F8C",
+        "dark": "#4CC6D4",
+      },
     },
   },
   "font": {
@@ -112,6 +154,18 @@ export const light = {
     "border": "#9A8A80",
     "scrim": "#00000073",
     "shadow": "#00000066",
+    "category": {
+      "1": "#1F6FB2",
+      "2": "#C25400",
+      "3": "#2E8B3D",
+      "4": "#C62D42",
+      "5": "#7B4FB3",
+      "6": "#8C5A3C",
+      "7": "#C2428F",
+      "8": "#5F6B73",
+      "9": "#7A7A00",
+      "10": "#0E7F8C",
+    },
   },
   "font": {
     "family": {
@@ -180,6 +234,18 @@ export const dark = {
     "border": "#75655A",
     "scrim": "#000000A6",
     "shadow": "#000000A6",
+    "category": {
+      "1": "#6FA8DC",
+      "2": "#F39C4A",
+      "3": "#6CC77A",
+      "4": "#F07085",
+      "5": "#B79AE6",
+      "6": "#C99A78",
+      "7": "#EE8CC4",
+      "8": "#A8B3BA",
+      "9": "#C9C94A",
+      "10": "#4CC6D4",
+    },
   },
   "font": {
     "family": {
